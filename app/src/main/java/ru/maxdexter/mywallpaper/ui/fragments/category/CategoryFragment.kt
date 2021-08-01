@@ -7,26 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import ru.maxdexter.mywallpaper.R
+import ru.maxdexter.mywallpaper.databinding.CategoryFragmentBinding
 
 class CategoryFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CategoryFragment()
-    }
 
     private lateinit var viewModel: CategoryViewModel
-
+    private var binding: CategoryFragmentBinding? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.category_fragment, container, false)
+        binding = CategoryFragmentBinding.inflate(layoutInflater)
+
+        return binding?.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
-        // TODO: Use the ViewModel
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
+
+
 
 }

@@ -4,22 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import org.koin.android.ext.android.inject
 import ru.maxdexter.mywallpaper.databinding.CategoryFragmentBinding
 import ru.maxdexter.mywallpaper.ui.adapters.category.CategoryAdapter
 
 class CategoryFragment : Fragment() {
 
 
-    private lateinit var viewModel: CategoryViewModel
+    private val viewModel: CategoryViewModel by inject()
     private var binding: CategoryFragmentBinding? = null
     private val categoryAdapter by lazy {
-        CategoryAdapter({
-            Toast.makeText(requireContext(),it,Toast.LENGTH_SHORT).show()
-        })
+        CategoryAdapter {
+            findNavController()
+                .navigate(
+                    CategoryFragmentDirections.actionCategoryFragmentToListCategoriesFragment(
+                        it
+                    )
+                )
+        }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,8 +37,7 @@ class CategoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CategoryViewModel::class.java)
-        viewModel.categoryList.observe(viewLifecycleOwner,{
+        viewModel.categoryList.observe(viewLifecycleOwner, {
             categoryAdapter.submitList(it)
             binding?.rvCategoryList?.adapter = categoryAdapter
         })

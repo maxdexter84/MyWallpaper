@@ -63,4 +63,9 @@ dependencies {
     // Navigation Components
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+
+    //Koin
+    implementation "org.koin:koin-core:2.2.2"
+    implementation "org.koin:koin-androidx-scope:2.2.2"
+    implementation "org.koin:koin-androidx-viewmodel:2.2.2"
 }

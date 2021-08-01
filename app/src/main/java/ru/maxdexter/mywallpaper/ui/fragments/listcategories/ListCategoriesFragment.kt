@@ -10,10 +10,6 @@ import ru.maxdexter.mywallpaper.R
 
 class ListCategoriesFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ListCategoriesFragment()
-    }
-
     private lateinit var viewModel: ListCategoriesViewModel
 
     override fun onCreateView(

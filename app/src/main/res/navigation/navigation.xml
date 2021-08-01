@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/categoryFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="ru.maxdexter.mywallpaper.ui.fragments.category.CategoryFragment"
+        android:label="category_fragment"
+        tools:layout="@layout/category_fragment" >
+        <action
+            android:id="@+id/action_categoryFragment_to_listCategoriesFragment"
+            app:destination="@id/listCategoriesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listCategoriesFragment"
+        android:name="ru.maxdexter.mywallpaper.ui.fragments.listcategories.ListCategoriesFragment"
+        android:label="list_categories_fragment"
+        tools:layout="@layout/list_categories_fragment" >
+        <action
+            android:id="@+id/action_listCategoriesFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="ru.maxdexter.mywallpaper.ui.fragments.details.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" />
+</navigation>

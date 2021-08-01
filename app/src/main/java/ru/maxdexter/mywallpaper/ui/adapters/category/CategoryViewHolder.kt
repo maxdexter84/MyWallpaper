@@ -16,7 +16,7 @@ class CategoryViewHolder(private val binding: ItemCategoryBinding) :
     companion object {
         fun create(parent: ViewGroup): CategoryViewHolder {
             val inflater = LayoutInflater.from(parent.context)
-            val binding = ItemCategoryBinding.inflate(inflater)
+            val binding = ItemCategoryBinding.inflate(inflater, parent, false)
             return CategoryViewHolder(binding)
         }
     }

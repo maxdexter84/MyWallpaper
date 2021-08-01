@@ -10,9 +10,10 @@
         android:id="@+id/tv_category_list_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/category_list_title"
         android:fontFamily="@font/roboto_medium"
+        android:text="@string/category_list_title"
         android:textSize="@dimen/category_title_text_size"
+        app:layout_constraintBottom_toTopOf="@+id/rv_category_list"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,7 +21,9 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_category_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        tools:listitem="@layout/item_category"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

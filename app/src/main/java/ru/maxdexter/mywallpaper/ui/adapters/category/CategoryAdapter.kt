@@ -18,7 +18,7 @@ class CategoryAdapter(private val click: (String) -> Unit) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val vh = CategoryViewHolder.create(parent)
         vh.itemView.setOnClickListener {
-            click.invoke(categoryList[vh.adapterPosition].name)
+            click.invoke(categoryList[vh.absoluteAdapterPosition].name)
         }
         return vh
     }

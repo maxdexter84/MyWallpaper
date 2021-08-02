@@ -4,8 +4,8 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import ru.maxdexter.mywallpaper.data.remote.retrofit.BASE_URL
 import ru.maxdexter.mywallpaper.data.remote.retrofit.ImageApi
 
 val networkModule = module {
@@ -16,8 +16,8 @@ val networkModule = module {
             .addInterceptor(loggingInterceptor)
             .build()
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .baseUrl("https://pixabay.com")
+            .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
             .create(ImageApi::class.java)

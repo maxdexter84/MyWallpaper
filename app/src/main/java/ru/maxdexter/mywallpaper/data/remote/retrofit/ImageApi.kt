@@ -7,7 +7,7 @@ import ru.maxdexter.mywallpaper.data.remote.model.Result
 
 interface ImageApi {
 
-    @GET("/api/?key=22732329-7132ef4352db940989ab33af1")
+    @GET("api/?key=22732329-7132ef4352db940989ab33af1")
     suspend fun getImages(
         @Query("category") category: String,
         @Query("page") page: Int,

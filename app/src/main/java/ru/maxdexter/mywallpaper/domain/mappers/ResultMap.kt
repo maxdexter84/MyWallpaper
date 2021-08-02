@@ -7,13 +7,13 @@ class ResultMap {
     companion object {
         fun mapResultToImage(hit: Hit): Image {
             return Image(
-                hit.id,
-                hit.largeImageURL,
-                hit.pageURL,
-                hit.previewURL,
-                hit.tags,
-                hit.type,
-                hit.webformatURL
+                hit.id ?: 0,
+                hit.largeImageURL ?: "",
+                hit.pageURL ?: "",
+                hit.previewURL ?:"",
+                hit.tags ?: "",
+                hit.type ?: "",
+                hit.webformatURL ?: ""
             )
         }
     }

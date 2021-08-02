@@ -4,4 +4,6 @@
     <dimen name="spacing_16dp">16dp</dimen>
     <dimen name="spacing_8dp">8dp</dimen>
     <dimen name="error_text_size">30sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="splash_screen_title_text_size">30sp</dimen>
 </resources>

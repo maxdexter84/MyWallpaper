@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.drawToBitmap
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.maxdexter.mywallpaper.databinding.DetailFragmentBinding
 import ru.maxdexter.mywallpaper.ui.fragments.listcategories.ListCategoriesFragmentArgs
 import ru.maxdexter.mywallpaper.utils.setImage
@@ -27,12 +28,19 @@ class DetailFragment : Fragment() {
     ): View {
         _binding = DetailFragmentBinding.inflate(layoutInflater, container, false)
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         binding.ivDetail.setImage(args)
         binding.dtnSetWallpaper.setOnClickListener {
             val wallpaperManager = WallpaperManager.getInstance(requireContext())
             wallpaperManager.setBitmap(binding.ivDetail.drawToBitmap())
         }
-        return binding.root
+        binding.toolbar.setNavigationOnClickListener {
+            findNavController().navigateUp()
+        }
     }
 
 

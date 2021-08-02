@@ -30,5 +30,9 @@
         android:id="@+id/detailFragment"
         android:name="ru.maxdexter.mywallpaper.ui.fragments.details.DetailFragment"
         android:label="detail_fragment"
-        tools:layout="@layout/detail_fragment" />
+        tools:layout="@layout/detail_fragment" >
+        <argument
+            android:name="imageUrl"
+            app:argType="string" />
+    </fragment>
 </navigation>

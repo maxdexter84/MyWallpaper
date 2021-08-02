@@ -1,4 +1,4 @@
-package ru.maxdexter.mynews.ui.adapters.loadstateadapter
+package ru.maxdexter.mywallpaper.ui.adapters.loadstate
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -28,7 +28,7 @@ class LoadStateViewHolder(
     companion object {
         fun from(parent: ViewGroup, retry: () -> Unit): LoadStateViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val binding = LoadStateViewItemBinding.inflate(layoutInflater)
+            val binding = LoadStateViewItemBinding.inflate(layoutInflater, parent, false)
             return LoadStateViewHolder(binding, retry)
         }
     }

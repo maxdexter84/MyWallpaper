@@ -10,7 +10,7 @@ class ResultMap {
                 hit.id ?: 0,
                 hit.largeImageURL ?: "",
                 hit.pageURL ?: "",
-                hit.previewURL ?:"",
+                hit.webformatURL ?:"",
                 hit.tags ?: "",
                 hit.type ?: "",
                 hit.webformatURL ?: ""

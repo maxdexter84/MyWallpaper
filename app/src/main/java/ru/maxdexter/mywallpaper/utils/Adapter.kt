@@ -5,10 +5,10 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
-import ru.maxdexter.mynews.ui.adapters.newsadapter.ImageAdapter
+import ru.maxdexter.mywallpaper.ui.adapters.image.ImageAdapter
 import ru.maxdexter.mywallpaper.databinding.ListCategoriesFragmentBinding
 
-fun  ImageAdapter.loadStateListener(binding: ListCategoriesFragmentBinding, context: Context) {
+fun ImageAdapter.loadStateListener(binding: ListCategoriesFragmentBinding, context: Context) {
     this.addLoadStateListener { loadState ->
         // Показывать список можно только в том случае, если обновление прошло успешно.
         binding.rvImageList.isVisible = loadState.source.refresh is LoadState.NotLoading

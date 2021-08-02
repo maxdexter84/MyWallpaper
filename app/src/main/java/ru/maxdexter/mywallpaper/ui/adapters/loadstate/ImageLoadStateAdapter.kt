@@ -1,4 +1,4 @@
-package ru.maxdexter.mynews.ui.adapters.loadstateadapter
+package ru.maxdexter.mywallpaper.ui.adapters.loadstate
 
 import android.view.ViewGroup
 import androidx.paging.LoadState
@@ -10,6 +10,6 @@ class ImageLoadStateAdapter(private val retry:()->Unit): LoadStateAdapter<LoadSt
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, loadState: LoadState): LoadStateViewHolder {
-        return LoadStateViewHolder.from(parent,retry)
+        return LoadStateViewHolder.from(parent, retry)
     }
 }

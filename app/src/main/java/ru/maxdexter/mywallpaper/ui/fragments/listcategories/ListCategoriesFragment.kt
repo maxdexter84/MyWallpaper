@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import org.koin.android.ext.android.inject
-import ru.maxdexter.mynews.ui.adapters.loadstateadapter.ImageLoadStateAdapter
-import ru.maxdexter.mynews.ui.adapters.newsadapter.ImageAdapter
+import ru.maxdexter.mywallpaper.ui.adapters.loadstate.ImageLoadStateAdapter
+import ru.maxdexter.mywallpaper.ui.adapters.image.ImageAdapter
 import ru.maxdexter.mywallpaper.databinding.ListCategoriesFragmentBinding
 import ru.maxdexter.mywallpaper.utils.NetworkCheck
 import ru.maxdexter.mywallpaper.utils.loadStateListener
@@ -25,7 +28,14 @@ class ListCategoriesFragment : Fragment() {
     private val args by lazy {
         arguments?.let { ListCategoriesFragmentArgs.fromBundle(it).categoryName }
     }
-    private val imageAdapter: ImageAdapter by lazy { ImageAdapter() }
+    private val imageAdapter: ImageAdapter by lazy { ImageAdapter {
+        findNavController().navigate(
+            ListCategoriesFragmentDirections.actionListCategoriesFragmentToDetailFragment(
+                it
+            )
+        )
+    }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -64,7 +74,6 @@ class ListCategoriesFragment : Fragment() {
 
     private fun initRecyclerView() {
         binding.rvImageList.apply {
-            layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
             adapter = imageAdapter.withLoadStateHeaderAndFooter(
                 header = ImageLoadStateAdapter { imageAdapter.retry() },
                 footer = ImageLoadStateAdapter { imageAdapter.retry() }

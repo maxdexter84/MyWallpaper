@@ -11,7 +11,7 @@ fun <T> ImageView.setImage(uri: T) {
         .load(uri).apply(
             RequestOptions().placeholder(R.drawable.loading_animation)
                 .error(R.drawable.ic_brocken_img)
-        ).override(300).diskCacheStrategy(
+        ).diskCacheStrategy(
             DiskCacheStrategy.ALL
         ).into(this)
 }

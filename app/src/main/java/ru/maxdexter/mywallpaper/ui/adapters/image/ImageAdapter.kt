@@ -1,18 +1,22 @@
-package ru.maxdexter.mynews.ui.adapters.newsadapter
+package ru.maxdexter.mywallpaper.ui.adapters.image
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import ru.maxdexter.mywallpaper.ui.adapters.image.ImageViewHolder
 import ru.maxdexter.mywallpaper.ui.model.Image
 
 
-class ImageAdapter : PagingDataAdapter<Image, ImageViewHolder>(diffCallback) {
+class ImageAdapter(private val click:(String)-> Unit) : PagingDataAdapter<Image, ImageViewHolder>(diffCallback) {
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): ImageViewHolder {
-       return ImageViewHolder.from(parent)
+        val vh = ImageViewHolder.from(parent)
+        vh.itemView.setOnClickListener {
+            getItem(vh.absoluteAdapterPosition)?.largeImageURL?.let { url -> click.invoke(url) }
+        }
+       return vh
     }
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {

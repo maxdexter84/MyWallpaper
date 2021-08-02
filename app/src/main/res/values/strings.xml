@@ -2,4 +2,5 @@
     <string name="app_name">MyWallpaper</string>
     <string name="category_list_title">Категории изображений</string>
     <string name="retry">Повтор</string>
+    <string name="btn_text">Установить как обои</string>
 </resources>

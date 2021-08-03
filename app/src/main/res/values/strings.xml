@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">MyWallpaper</string>
-    <string name="category_list_title">Категории изображений</string>
-    <string name="retry">Повтор</string>
-    <string name="btn_text">Установить как обои</string>
+    <string name="category_list_title">image category</string>
+    <string name="retry">retry</string>
+    <string name="btn_text">set as wallpaper</string>
     <string name="title_activity_splash">SplashActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
